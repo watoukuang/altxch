@@ -1,0 +1,7 @@
+# Eureka 配置信息
+eureka:
+  client:
+    service-url:
+      defaultZone: ${eureka.client.serviceUrl.defaultZone}
+    fetch-registry: false
+    register-with-eureka: false

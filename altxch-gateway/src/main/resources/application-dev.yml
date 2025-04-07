@@ -1,0 +1,4 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka.client.serviceUrl.defaultZone}

@@ -1,0 +1,38 @@
+server:
+  port: 7004
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+    # 资源信息
+  messages:
+    # 国际化资源配置文件路径
+    basename: i18n/message
+    encoding: utf-8
+  application:
+    name: altxch-match
+  kafka:
+    producer:
+      retries: 3
+      batch:
+        size: 2560
+      linger: 1
+      buffer:
+        memory: 1048576
+    consumer:
+      enable:
+        auto:
+          commit: false
+      session:
+        timeout: 15000
+      auto:
+        commit:
+          interval: 100
+        offset:
+          reset: earliest
+      group:
+        id: default-group
+      concurrency: 9
+      maxPollRecordsConfig: 50

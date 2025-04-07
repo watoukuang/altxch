@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka.client.serviceUrl.defaultZone}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  kafka:
+    bootstrap-servers: ${spring.kafka.bootstrap-servers}
+  data:
+    mongodb:
+      uri: ${spring.data.mongodb.uri}

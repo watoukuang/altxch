@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.9.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.watoukuang</groupId>
+    <artifactId>altxch</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>altxch-wallet</module>
+        <module>altxch-cloud</module>
+        <module>altxch-admin</module>
+        <module>altxch-ucenter</module>
+        <module>altxch-common</module>
+        <module>altxch-exchange</module>
+        <module>altxch-core</module>
+        <module>altxch-match</module>
+        <module>altxch-gateway</module>
+        <module>altxch-chat</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.jdk_version>1.8</project.build.jdk_version>
+        <!-- spring -->
+        <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
+        <spring-boot_version>1.5.19.RELEASE</spring-boot_version>
+        <cloud_starter_version>1.4.7.RELEASE</cloud_starter_version>
+        <!--反序列化-->
+        <xstream_version>1.4.19</xstream_version>
+        <!-- 数据库连接 -->
+        <druid_version>1.1.22</druid_version>
+        <mysql.version>8.0.23</mysql.version>
+        <!-- commons包 -->
+        <commons-codec_version>1.10</commons-codec_version>
+        <commons-fileupload_version>1.3</commons-fileupload_version>
+        <commons-beanutils_version>1.8.3</commons-beanutils_version>
+        <commons-lang3_version>3.4</commons-lang3_version>
+        <commons-logging_version>1.1.3</commons-logging_version>
+        <commons-collections_version>3.2</commons-collections_version>
+        <!-- extension -->
+        <lombok_version>1.16.16</lombok_version>
+        <kafka_version>0.10.2.2</kafka_version>
+        <!-- Log libs -->
+        <slf4j_version>1.7.7</slf4j_version>
+        <jcl_version>1.1</jcl_version>
+        <log4j_version>1.2.17</log4j_version>
+        <logback_version>1.2.3</logback_version>
+        <logback-ext-spring_version>0.1.5</logback-ext-spring_version>
+        <!-- Test Libs -->
+        <junit_version>4.12</junit_version>
+        <shiro_version>1.7.0</shiro_version>
+        <netty_version>4.1.58.Final</netty_version>
+        <ehcache_version>2.6.11</ehcache_version>
+        <!--netty-->
+        <netty_version>4.1.22.Final</netty_version>
+        <guava_version>21.0</guava_version>
+        <protostuff_version>1.5.9</protostuff_version>
+        <ehcache_version>2.6.11</ehcache_version>
+        <mybatis.plus.extension.version>3.5.2</mybatis.plus.extension.version>
+        <hutool.all.version>5.8.5</hutool.all.version>
+        <fastjson.version>1.2.79</fastjson.version>
+        <commons.lang3.version>3.9</commons.lang3.version>
+        <pagehelper.version>1.4.1</pagehelper.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR12</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.all.version}</version>
+            </dependency>
+            <!-- 阿里 JSO N解析器 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.extension.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <!-- PageHelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

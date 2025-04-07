@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+    # 资源信息
+  application:
+    name: altxch-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: websocket-route
+          uri: lb://ALTXCH-EXCHANGE
+          predicates:
+            - Path=/ws/**
+          filters:
+            - StripPrefix=1
+          metadata:
+            websocket: true
+
+# 配置Gateway日志等级，输出转发细节信息
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.watoukuang.altxch.core.dao.mapper.ExchangeOrderMapper">
+
+    <select id="selectExchangeOrders" resultType="com.watoukuang.altxch.core.dao.dataobj.ExchangeOrderDO">
+        SELECT *
+        FROM t_order
+        ORDER BY `time` DESC
+    </select>
+</mapper>
