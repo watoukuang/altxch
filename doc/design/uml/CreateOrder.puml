@@ -1,0 +1,45 @@
+@startuml 订单创建与发送流程
+
+start
+:获取FPGA硬件时间戳;
+note right: 使用高精度时钟\n保证时序准确性
+
+:组装订单对象;
+note right: 包含(symbol, price,\n quantity, timestamp)
+
+:订单入库MySQL;
+note right: 获取自增ID\n用于排序去重
+
+fork
+    :响应客户端请求\n(如订单提交成功);
+    note right: Kafka 投递为异步，不阻塞主流程
+fork again
+
+    partition 异步发送至Kafka #LightBlue {
+        repeat
+            :发送订单到Kafka;
+            note left: 使用Kafka同主题下\n按交易对/时间分区
+
+            if (发送成功?) then (是)
+                :更新订单状态为"SENT";
+                stop
+            else (否)
+                :重试计数+1;
+                :记录失败日志;
+
+                if (重试次数 < 3?) then (是)
+                    :等待指数退避(2^N秒);
+                    ->重试;
+                else (否)
+                    :标记订单状态为"FAILED";
+                    :写入死信队列(DLQ);
+                    :触发告警(PagerDuty/SMS);
+                    stop
+                endif
+            endif
+        repeat while (重试次数 < 3) is (未超限)
+    }
+
+end fork
+
+@enduml

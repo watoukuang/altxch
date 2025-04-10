@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor User
+participant "网关服务"
+participant "单点登录"
+participant "用户中心"
+participant "业务系统"
+participant "Redis"
+
+== 首次登录流程 ==
+User -> 网关服务: Post/login
+网关服务 -> 单点登录: 请求放行
+单点登录 -> 单点登录: 验证账号和密码
+单点登录 -> Redis: 存储令牌token:xxx(设置TTL)
+单点登录 -> 用户中心: 查询用户权限相关信息
+用户中心 -> 单点登录: 返回权限列表
+单点登录 -> Redis: 存储权限信息auth:xxx(设置TTL)
+单点登录 -> 网关服务: 返回Token
+网关服务 -> User: 返回Token
+
+
+== 接口访问鉴权 ==
+User -> 网关服务: 请求业务接口(携带令牌)
+网关服务 -> Redis: 查询令牌(token:xxx是否存在)
+alt 令牌有效
+    网关服务 -> Redis: 查询auth:uid是否存在
+    alt 权限存在
+        网关服务 -> 业务系统: 请求转发
+        业务系统 -> 网关服务: 返回业务响应
+        网关服务 -> User: 返回业务响应
+    else 权限不存在
+        网关服务 -> User: 403 Forbidden
+    end
+else 令牌无效
+    网关服务 -> User: 401 Unauthorized
+end
+@enduml

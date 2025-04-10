@@ -1,0 +1,54 @@
+@startuml 限价单撮合流程（含订单簿管理）
+
+start
+:接收Kafka订单消息;
+:解析订单类型和方向;
+
+if (订单类型?) then (市价单)
+    :处理市价单逻辑;
+    stop
+else (限价单)
+    if (方向?) then (买)
+        :限价单队列 = 限价卖单队列;
+        note right: **数据结构**\nTreeMap<BigDecimal, List<ExchangeOrder>>\n• 价格降序排列
+    else (卖)
+        :限价单队列 = 限价买单队列;
+        note left: **数据结构**\nTreeMap<BigDecimal, List<ExchangeOrder>>\n• 价格升序排列
+    endif
+
+    partition 撮合循环 #LightBlue {
+        repeat
+            if (价格匹配?) then (是)
+                :1. 计算成交数量;
+                note left:取买卖双方最小值;
+                :2. 生成交易记录;
+                :3. 更新订单簿:
+                - 减少可撮合订单数量
+                - 若数量=0则移除;
+                :4. 更新限价单队列;
+                :5. 发送成交至KFK;
+
+                if (可撮合订单完成?) then (是)
+                    :将可撮合订单移入\n已完成列表;
+                endif
+
+                if (当前订单完全成交?) then (是)
+                    :将当前订单移入\n已完成列表(Redis);
+                    -> 退出循环;
+                else (否)
+                    :更新当前订单剩余量;
+                    -> 带限价单队列下一次循环;
+                endif
+            else (否)
+                :将当前队列加入订单薄;
+                :将当前订单加入\n限价队列(TreeMap);
+                -> 退出循环;
+            endif
+        repeat while (队列非空)
+    }
+endif
+
+:发送完成的订单记录到KFK;
+
+stop
+@enduml
