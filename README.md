@@ -1,7 +1,7 @@
 # 📌 ALTXCH 数字资产交易平台
 
 <p align="center">
-  <img src="doc/imgs/logo.png" alt="ALTXCH Logo" width="200">
+  <img src="imgs/logo.png" alt="ALTXCH Logo" width="200">
 </p>
 
 ## 🔥 项目描述
@@ -29,14 +29,14 @@
 ---
 ## 🐈 项目截图
 ### 首页截图
-![entry.png](doc/imgs/web/entry.png)
+![entry.png](imgs/web/entry.png)
 
 ### 撮合引擎截图
-![entry.png](doc/imgs/web/match.png)
+![entry.png](imgs/web/match.png)
 
 ## 🚀 系统架构
 <p align="center">
-  <img src="doc/imgs/architecture.png" alt="Gateway">
+  <img src="imgs/architecture.png" alt="Gateway">
 </p>
 
 ## 🍀 核心流程
@@ -44,7 +44,7 @@
 ### 鉴权认证
 
 <p align="center">
-  <img src="doc/imgs/gateway.png" alt="Gateway">
+  <img src="imgs/gateway.png" alt="Gateway">
 </p>
 
 ### 创建订单
