@@ -6,9 +6,9 @@
 
 ## 🔥 项目描述
  
-<a href="http://altxch.com">ALTXCH</a> 是一款基于**SpringCloud**微服务架构的开源数字货币交易所**解决方案**，专为**小型交易所**快速部署和**开发者学习交易所核心业务**而设计。
-系统采用前后端解耦的现代化架构设计，基于分布式微服务体系构建。 前端基于Vue3+TypeScript构建响应式界面, 后端采用SpringBoot和MyBatisPlus业务逻辑处理。 系统通过**Redis**实现毫秒级的高频数据缓存，**MySQL**确保核心业务数据的强一致性，**Kafka**构建高可靠的消息投递机制，*
-*MongoDB**处理海量业务数据。项目主要由以下几个子系统构成:
+&nbsp;&nbsp;**<a href="http://altxch.com">ALTXCH</a>**是一款基于**SpringCloud**微服务架构的开源数字货币交易所**解决方案**，专为**小型交易所**快速部署和**开发者学习交易所核心业务**而设计。
+系统采用前后端解耦的现代化架构设计，基于分布式微服务体系构建。 前端基于Vue3+TypeScript构建响应式界面, 后端采用SpringBoot和MyBatisPlus业务逻辑处理。 系统通过**Redis**实现毫秒级的高频数据缓存，**MySQL**确保核心业务数据的强一致性，**Kafka**构建高可靠的消息投递机制，
+**MongoDB**处理海量业务数据。项目主要由以下几个子系统构成:
 - 网关服务: 基于Gateway构建的高性能网关系统统一入口，作为系统的统一入口提供动态路由、接口鉴权等能力，从而确保系统的安全性和稳定性。
 - 注册中心: 采用Eureka构建的分布式服务注册发现中心，实现微服务的自动注册与健康检查。通过心跳检测机制实时监控服务状态变化，结合邮件告警机制，确保服务网格的稳定运行。
 - 管理系统: 基于RBAC模型的综合管理平台，包含用户管理、菜单管理、权限管理、内容管理、币币管理、财务管理等功能。
@@ -20,11 +20,14 @@
 - 任务模块: 基于XXL-JOB的分布式任务调度平台，实时定时转账，深度图推送等批处理业务
 
 ---
+## 🐈 项目截图
 
 ## 🚀 系统架构
+<p align="center">
+  <img src="doc/imgs/architecture.png" alt="Gateway">
+</p>
 
-
-## 🍀 系统流程
+## 🍀 核心流程
 
 ### 鉴权认证
 <p align="center">
@@ -35,78 +38,8 @@
 
 ---
 
-## 🛠️ 技术栈
+## 🛠️ 运行流程
 
-- **前端**：Vue 3 + View UI Plus
-- **后端**：Node.js + Express
-- **数据库**：MongoDB
-- **区块链交互**：Web3.js
-- **部署**：Docker + Nginx
-
----
-
-## 📂 项目结构
-
-```
-altxch/
-├── src/
-│   ├── assets/          # 静态资源
-│   ├── components/      # 公共组件
-│   ├── views/           # 页面视图
-│   ├── router/          # 路由配置
-│   ├── store/           # 状态管理
-│   ├── services/        # API服务
-│   ├── utils/           # 工具函数
-│   └── App.vue          # 根组件
-├── public/              # 公共文件
-└── package.json         # 项目依赖
-```
-
----
-
-## 🏁 快速开始
-
-### 🛠️ 开发环境
-
-1. 克隆仓库
-
-```bash
-git clone https://github.com/yourusername/altxch.git
-cd altxch
-```
-
-2. 安装依赖
-
-```bash
-npm install
-```
-
-3. 启动开发服务器
-
-```bash
-npm run dev
-```
-
-### 🚀 生产构建
-
-```bash
-npm run build
-```
-
----
-
-## ⚙️ 配置
-
-复制 `.env.example` 文件为 `.env` 并修改配置：
-
-```env
-VUE_APP_API_URL=https://api.altxch.com
-VUE_APP_CHAIN_ID=1
-```
-
----
-
----
 
 ## ⚠️ 免责声明与使用条款
 
@@ -166,8 +99,8 @@ VUE_APP_CHAIN_ID=1
 ## 📞 联系方式
 
 - 🌐 官网: [https://altxch.com](https://altxch.com)
-- ✉️ 邮箱: contact@altxch.com
-- 🐦 Twitter: [@altxch](https://twitter.com/altxch)
+- ✉️ 邮箱: watoukuang@gmail.com
+- 🐦 Twitter: [@altxch](https://x.com/watoukuang)
 
 ---
 
