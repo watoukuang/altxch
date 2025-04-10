@@ -22,14 +22,15 @@
 
 **演示地址**
 前端:https://altxch.com  
-备注:由于服务成本原因，本人目前只部署了前端
+
+备注:服务成本原因，只部署了前端
 
 ---
 ## 🐈 项目截图
 ### 首页截图
 ![entry.png](doc/imgs/web/entry.png)
 
-### 戳和引擎截图
+### 撮合引擎截图
 ![entry.png](doc/imgs/web/match.png)
 
 ## 🚀 系统架构
@@ -40,15 +41,32 @@
 ## 🍀 核心流程
 
 ### 鉴权认证
+
 <p align="center">
   <img src="doc/imgs/gateway.png" alt="Gateway">
 </p>
 
+### 创建订单
 
+### 订单撮合
+
+### 钱包充值
+
+### 钱包提现
+
+### 创建钱包
 
 ---
 
 ## 🛠️ 运行流程
+- 启动注册中心:altxch-cloud
+- 启动网关服务:altxch-gateway
+- 启动撮合引擎:altxch-match
+- 启动市场服务:altxch-exchange
+- 启动用户中心:altxch-ucenter
+- 启动管理系统:altxch-admin
+- 启动钱包服务:altxch-wallet
+- 启动节点服务:altxch-nodes
 
 
 ## ⚠️ 免责声明与使用条款
